@@ -1,0 +1,163 @@
+DIGEST fd35764cd7f228d1774c658886632d0d
+Frt.model.schedule.uni.schedulability
+R15:25 rt.util.all <> <> lib
+R43:69 rt.model.arrival.basic.task <> <> lib
+R71:96 rt.model.arrival.basic.job <> <> lib
+R98:136 rt.model.arrival.basic.arrival_sequence <> <> lib
+R153:182 rt.model.schedule.uni.schedule <> <> lib
+R184:218 rt.model.schedule.uni.response_time <> <> lib
+R250:258 mathcomp.ssreflect.ssreflect <> <> lib
+R260:266 mathcomp.ssreflect.ssrbool <> <> lib
+R268:273 mathcomp.ssreflect.eqtype <> <> lib
+R275:280 mathcomp.ssreflect.ssrnat <> <> lib
+R282:284 mathcomp.ssreflect.seq <> <> lib
+R286:292 mathcomp.ssreflect.fintype <> <> lib
+R294:298 mathcomp.ssreflect.bigop <> <> lib
+mod 309:322 <> Schedulability
+sec 481:494 Schedulability DeadlineMisses
+R516:521 mathcomp.ssreflect.eqtype Equality.Exports eqType syndef
+var 538:548 Schedulability.DeadlineMisses job_arrival
+R554:557 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R558:561 rt.model.time Time time def
+R551:553 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Job var
+var 577:584 Schedulability.DeadlineMisses job_cost
+R590:593 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R594:597 rt.model.time Time time def
+R587:589 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Job var
+var 613:624 Schedulability.DeadlineMisses job_deadline
+R630:633 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R634:637 rt.model.time Time time def
+R627:629 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Job var
+R664:669 mathcomp.ssreflect.eqtype Equality.Exports eqType syndef
+var 686:693 Schedulability.DeadlineMisses job_task
+R699:702 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R703:706 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Task var
+R696:698 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Job var
+var 770:776 Schedulability.DeadlineMisses arr_seq
+R779:794 rt.model.arrival.basic.arrival_sequence ArrivalSequence arrival_sequence def
+R796:798 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Job var
+var 873:877 Schedulability.DeadlineMisses sched
+R880:887 rt.model.schedule.uni.schedule UniprocessorSchedule schedule def
+R889:891 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Job var
+var 960:975 Schedulability.DeadlineMisses job_completed_by
+R980:991 rt.model.schedule.uni.schedule UniprocessorSchedule completed_by def
+R1002:1006 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.sched var
+R993:1000 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_cost var
+var 1017:1040 Schedulability.DeadlineMisses response_time_bounded_by
+R1051:1080 rt.model.schedule.uni.response_time ResponseTime is_response_time_bound_of_task def
+R1120:1124 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.sched var
+R1112:1118 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.arr_seq var
+R1103:1110 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_task var
+R1094:1101 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_cost var
+R1082:1092 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_arrival var
+sec 1140:1150 Schedulability.DeadlineMisses Definitions
+sec 1246:1253 Schedulability.DeadlineMisses.Definitions JobLevel
+var 1313:1313 Schedulability.DeadlineMisses.Definitions.JobLevel j
+R1316:1318 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Job var
+def 1418:1439 Schedulability job_misses_no_deadline
+R1454:1469 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_completed_by var
+R1487:1489 mathcomp.ssreflect.ssrnat <> :nat_scope:x_'+'_x not
+R1474:1484 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_arrival var
+R1486:1486 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Definitions.JobLevel.j var
+R1490:1501 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_deadline var
+R1503:1503 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Definitions.JobLevel.j var
+R1471:1471 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Definitions.JobLevel.j var
+R1528:1535 rt.model.schedule.uni.schedulability Schedulability.DeadlineMisses.Definitions.JobLevel <> sec
+sec 1621:1629 Schedulability.DeadlineMisses.Definitions TaskLevel
+var 1690:1692 Schedulability.DeadlineMisses.Definitions.TaskLevel tsk
+R1695:1698 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Task var
+def 1813:1835 Schedulability task_misses_no_deadline
+R1892:1907 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R1924:1939 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R1940:1961 rt.model.schedule.uni.schedulability Schedulability job_misses_no_deadline def
+R1963:1963 rt.model.schedule.uni.schedulability <> j var
+R1918:1920 Coq.Init.Logic <> :type_scope:x_'='_x not
+R1908:1915 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_task var
+R1917:1917 rt.model.schedule.uni.schedulability <> j var
+R1921:1923 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Definitions.TaskLevel.tsk var
+R1872:1881 rt.model.arrival.basic.arrival_sequence ArrivalSequence arrives_in def
+R1891:1891 rt.model.schedule.uni.schedulability <> j var
+R1883:1889 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.arr_seq var
+R1985:1993 rt.model.schedule.uni.schedulability Schedulability.DeadlineMisses.Definitions.TaskLevel <> sec
+sec 2083:2094 Schedulability.DeadlineMisses.Definitions TaskSetLevel
+var 2158:2159 Schedulability.DeadlineMisses.Definitions.TaskSetLevel ts
+R2162:2164 mathcomp.ssreflect.seq <> seq syndef
+R2166:2169 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Task var
+def 2275:2300 Schedulability taskset_misses_no_deadline
+R2349:2364 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R2365:2387 rt.model.schedule.uni.schedulability Schedulability task_misses_no_deadline def
+R2389:2391 rt.model.schedule.uni.schedulability <> tsk var
+R2342:2346 mathcomp.ssreflect.ssrbool <> :bool_scope:x_'\in'_x not
+R2339:2341 rt.model.schedule.uni.schedulability <> tsk var
+R2347:2348 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Definitions.TaskSetLevel.ts var
+R2413:2424 rt.model.schedule.uni.schedulability Schedulability.DeadlineMisses.Definitions.TaskSetLevel <> sec
+R2442:2452 rt.model.schedule.uni.schedulability Schedulability.DeadlineMisses.Definitions <> sec
+sec 2543:2548 Schedulability.DeadlineMisses Lemmas
+var 2567:2575 Schedulability.DeadlineMisses.Lemmas task_cost
+R2582:2585 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R2586:2589 rt.model.time Time time def
+R2578:2581 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Task var
+var 2607:2619 Schedulability.DeadlineMisses.Lemmas task_deadline
+R2626:2629 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R2630:2633 rt.model.time Time time def
+R2622:2625 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Task var
+sec 2735:2755 Schedulability.DeadlineMisses.Lemmas ResponseTimeIsBounded
+var 2887:2917 Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded H_job_deadline_eq_task_deadline
+R2972:2987 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R2988:3016 rt.model.arrival.basic.job Job job_deadline_eq_task_deadline def
+R3054:3054 rt.model.schedule.uni.schedulability <> j var
+R3045:3052 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_task var
+R3032:3043 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_deadline var
+R3018:3030 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.task_deadline var
+R2952:2961 rt.model.arrival.basic.arrival_sequence ArrivalSequence arrives_in def
+R2971:2971 rt.model.schedule.uni.schedulability <> j var
+R2963:2969 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.arr_seq var
+var 3153:3181 Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded H_completed_jobs_dont_execute
+R3184:3210 rt.model.schedule.uni.schedule UniprocessorSchedule completed_jobs_dont_execute def
+R3221:3225 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.sched var
+R3212:3219 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_cost var
+var 3280:3282 Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded tsk
+R3285:3288 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Task var
+var 3397:3397 Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded R
+R3400:3403 rt.model.time Time time def
+var 3425:3439 Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded H_R_le_deadline
+R3443:3446 mathcomp.ssreflect.ssrnat <> :nat_scope:x_'<='_x not
+R3442:3442 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.R var
+R3447:3459 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.task_deadline var
+R3461:3463 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.tsk var
+var 3485:3507 Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded H_response_time_bounded
+R3510:3533 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.response_time_bounded_by var
+R3539:3539 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.R var
+R3535:3537 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.tsk var
+prf 3603:3632 Schedulability task_completes_before_deadline
+R3645:3667 rt.model.schedule.uni.schedulability Schedulability task_misses_no_deadline def
+R3669:3671 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.tsk var
+R3706:3723 rt.model.arrival.basic.job Job valid_sporadic_job def
+R3726:3743 rt.model.arrival.basic.job Job valid_realtime_job def
+R3844:3846 mathcomp.ssreflect.ssrnat <> :nat_scope:x_'+'_x not
+R3831:3841 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_arrival var
+R3847:3847 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.R var
+R3799:3818 rt.model.schedule.uni.schedule UniprocessorSchedule completion_monotonic thm
+R3885:3907 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.H_response_time_bounded var
+R3844:3846 mathcomp.ssreflect.ssrnat <> :nat_scope:x_'+'_x not
+R3831:3841 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.job_arrival var
+R3847:3847 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.R var
+R3799:3818 rt.model.schedule.uni.schedule UniprocessorSchedule completion_monotonic thm
+R3885:3907 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.H_response_time_bounded var
+R3929:3937 mathcomp.ssreflect.ssrnat <> leq_add2l thm
+R3929:3937 mathcomp.ssreflect.ssrnat <> leq_add2l thm
+R3929:3937 mathcomp.ssreflect.ssrnat <> leq_add2l thm
+R3958:3966 mathcomp.ssreflect.ssrnat <> leq_trans thm
+R3968:3982 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.H_R_le_deadline var
+R3958:3966 mathcomp.ssreflect.ssrnat <> leq_trans thm
+R3968:3982 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.H_R_le_deadline var
+R4007:4037 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.H_job_deadline_eq_task_deadline var
+R4050:4054 mathcomp.ssreflect.ssrnat <> leqnn thm
+R4007:4037 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.H_job_deadline_eq_task_deadline var
+R4007:4037 rt.model.schedule.uni.schedulability <> Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded.H_job_deadline_eq_task_deadline var
+R4050:4054 mathcomp.ssreflect.ssrnat <> leqnn thm
+R4050:4054 mathcomp.ssreflect.ssrnat <> leqnn thm
+R4079:4099 rt.model.schedule.uni.schedulability Schedulability.DeadlineMisses.Lemmas.ResponseTimeIsBounded <> sec
+R4116:4121 rt.model.schedule.uni.schedulability Schedulability.DeadlineMisses.Lemmas <> sec
+R4131:4144 rt.model.schedule.uni.schedulability Schedulability.DeadlineMisses <> sec
+R4154:4167 rt.model.schedule.uni.schedulability Schedulability <> mod

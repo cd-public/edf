@@ -1,0 +1,133 @@
+DIGEST f3343213baa51344248b21c46e85dddc
+Frt.model.schedule.apa.affinity
+R15:25 rt.util.all <> <> lib
+R43:68 rt.model.arrival.basic.job <> <> lib
+R70:96 rt.model.arrival.basic.task <> <> lib
+R98:136 rt.model.arrival.basic.arrival_sequence <> <> lib
+R154:192 rt.model.schedule.global.basic.schedule <> <> lib
+R224:232 mathcomp.ssreflect.ssreflect <> <> lib
+R234:240 mathcomp.ssreflect.ssrbool <> <> lib
+R242:247 mathcomp.ssreflect.eqtype <> <> lib
+R249:254 mathcomp.ssreflect.ssrnat <> <> lib
+R256:258 mathcomp.ssreflect.seq <> <> lib
+R260:266 mathcomp.ssreflect.fintype <> <> lib
+R268:272 mathcomp.ssreflect.bigop <> <> lib
+mod 343:350 <> Affinity
+sec 416:427 Affinity AffinityDefs
+var 444:456 Affinity.AffinityDefs sporadic_task
+R459:464 mathcomp.ssreflect.eqtype Equality.Exports eqType syndef
+var 527:534 Affinity.AffinityDefs num_cpus
+R537:539 Coq.Init.Datatypes <> nat ind
+def 711:718 Affinity affinity
+R723:728 rt.util.seqset <> ::'{set'_x_'}' not
+R747:748 rt.util.seqset <> ::'{set'_x_'}' not
+R729:737 rt.model.schedule.global.basic.schedule Schedule processor def
+R739:746 rt.model.schedule.apa.affinity <> Affinity.AffinityDefs.num_cpus var
+def 850:862 Affinity task_affinity
+R880:883 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R884:891 rt.model.schedule.apa.affinity Affinity affinity def
+R867:879 rt.model.schedule.apa.affinity <> Affinity.AffinityDefs.sporadic_task var
+R905:916 rt.model.schedule.apa.affinity Affinity.AffinityDefs <> sec
+sec 930:939 Affinity Properties
+R971:976 mathcomp.ssreflect.eqtype Equality.Exports eqType syndef
+R1007:1009 Coq.Init.Datatypes <> nat ind
+sec 1026:1038 Affinity.Properties JobProperties
+var 1123:1127 Affinity.Properties.JobProperties alpha
+R1130:1142 rt.model.schedule.apa.affinity Affinity task_affinity def
+R1158:1165 rt.model.schedule.apa.affinity <> Affinity.Properties.num_cpus var
+R1144:1156 rt.model.schedule.apa.affinity <> Affinity.Properties.sporadic_task var
+var 1226:1228 Affinity.Properties.JobProperties tsk
+R1231:1243 rt.model.schedule.apa.affinity <> Affinity.Properties.sporadic_task var
+var 1310:1312 Affinity.Properties.JobProperties cpu
+R1315:1323 rt.model.schedule.global.basic.schedule Schedule processor def
+R1325:1332 rt.model.schedule.apa.affinity <> Affinity.Properties.num_cpus var
+def 1402:1415 Affinity can_execute_on
+R1423:1427 mathcomp.ssreflect.ssrbool <> :bool_scope:x_'\in'_x not
+R1420:1422 rt.model.schedule.apa.affinity <> Affinity.Properties.JobProperties.cpu var
+R1428:1432 rt.model.schedule.apa.affinity <> Affinity.Properties.JobProperties.alpha var
+R1434:1436 rt.model.schedule.apa.affinity <> Affinity.Properties.JobProperties.tsk var
+R1448:1460 rt.model.schedule.apa.affinity Affinity.Properties.JobProperties <> sec
+sec 1476:1493 Affinity.Properties ScheduleProperties
+R1517:1522 mathcomp.ssreflect.eqtype Equality.Exports eqType syndef
+var 1541:1548 Affinity.Properties.ScheduleProperties job_task
+R1554:1557 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R1558:1570 rt.model.schedule.apa.affinity <> Affinity.Properties.sporadic_task var
+R1551:1553 rt.model.schedule.apa.affinity <> Affinity.Properties.ScheduleProperties.Job var
+var 1634:1638 Affinity.Properties.ScheduleProperties sched
+R1641:1648 rt.model.schedule.global.basic.schedule Schedule schedule def
+R1654:1661 rt.model.schedule.apa.affinity <> Affinity.Properties.num_cpus var
+R1650:1652 rt.model.schedule.apa.affinity <> Affinity.Properties.ScheduleProperties.Job var
+var 1721:1725 Affinity.Properties.ScheduleProperties alpha
+R1728:1735 rt.model.schedule.apa.affinity Affinity affinity def
+R1737:1744 rt.model.schedule.apa.affinity <> Affinity.Properties.num_cpus var
+def 1899:1924 Affinity task_scheduled_on_affinity
+R1932:1944 rt.model.schedule.apa.affinity <> Affinity.Properties.sporadic_task var
+R1951:1954 rt.model.time Time time def
+R1968:1975 mathcomp.ssreflect.fintype FiniteQuant.Exports :bool_scope:'['_'exists'_x_x_']' not
+R2042:2042 mathcomp.ssreflect.fintype FiniteQuant.Exports :bool_scope:'['_'exists'_x_x_']' not
+R1979:1980 mathcomp.ssreflect.fintype FiniteQuant.Exports :fin_quant_scope:','_x not
+R1981:1981 Coq.Init.Datatypes <> :bool_scope:x_'&&'_x not
+R1995:1999 Coq.Init.Datatypes <> :bool_scope:x_'&&'_x not
+R1985:1989 mathcomp.ssreflect.ssrbool <> :bool_scope:x_'\in'_x not
+R1990:1994 rt.model.schedule.apa.affinity <> Affinity.Properties.ScheduleProperties.alpha var
+R2000:2016 rt.model.schedule.global.basic.schedule ScheduleOfSporadicTask task_scheduled_on def
+R2041:2041 rt.model.schedule.apa.affinity <> t var
+R2033:2035 rt.model.schedule.apa.affinity <> tsk var
+R2027:2031 rt.model.schedule.apa.affinity <> Affinity.Properties.ScheduleProperties.sched var
+R2018:2025 rt.model.schedule.apa.affinity <> Affinity.Properties.ScheduleProperties.job_task var
+R2054:2071 rt.model.schedule.apa.affinity Affinity.Properties.ScheduleProperties <> sec
+sec 2087:2092 Affinity.Properties Subset
+var 2165:2170 Affinity.Properties.Subset alpha'
+var 2172:2176 Affinity.Properties.Subset alpha
+R2179:2186 rt.model.schedule.apa.affinity Affinity affinity def
+R2188:2195 rt.model.schedule.apa.affinity <> Affinity.Properties.num_cpus var
+def 2318:2331 Affinity is_subaffinity
+R2336:2343 mathcomp.ssreflect.ssrbool <> :type_scope:'{'_'subset'_x_'<='_x_'}' not
+R2350:2353 mathcomp.ssreflect.ssrbool <> :type_scope:'{'_'subset'_x_'<='_x_'}' not
+R2359:2359 mathcomp.ssreflect.ssrbool <> :type_scope:'{'_'subset'_x_'<='_x_'}' not
+R2344:2349 rt.model.schedule.apa.affinity <> Affinity.Properties.Subset.alpha' var
+R2354:2358 rt.model.schedule.apa.affinity <> Affinity.Properties.Subset.alpha var
+sec 2377:2382 Affinity.Properties.Subset Lemmas
+var 2405:2417 Affinity.Properties.Subset.Lemmas H_subaffinity
+R2420:2433 rt.model.schedule.apa.affinity Affinity is_subaffinity def
+prf 2451:2465 Affinity leq_subaffinity
+R2478:2481 mathcomp.ssreflect.ssrnat <> :nat_scope:x_'<='_x not
+R2469:2470 mathcomp.ssreflect.fintype <> :nat_scope:'#|'_x_'|' not
+R2477:2477 mathcomp.ssreflect.fintype <> :nat_scope:'#|'_x_'|' not
+R2471:2476 rt.model.schedule.apa.affinity <> Affinity.Properties.Subset.alpha' var
+R2482:2483 mathcomp.ssreflect.fintype <> :nat_scope:'#|'_x_'|' not
+R2489:2489 mathcomp.ssreflect.fintype <> :nat_scope:'#|'_x_'|' not
+R2484:2488 rt.model.schedule.apa.affinity <> Affinity.Properties.Subset.alpha var
+R2531:2534 mathcomp.ssreflect.seq <> uniq def
+R2537:2541 rt.model.schedule.apa.affinity <> Affinity.Properties.Subset.alpha var
+R2531:2534 mathcomp.ssreflect.seq <> uniq def
+R2537:2541 rt.model.schedule.apa.affinity <> Affinity.Properties.Subset.alpha var
+R2559:2563 rt.model.schedule.apa.affinity <> Affinity.Properties.Subset.alpha var
+R2592:2595 mathcomp.ssreflect.seq <> uniq def
+R2598:2603 rt.model.schedule.apa.affinity <> Affinity.Properties.Subset.alpha' var
+R2592:2595 mathcomp.ssreflect.seq <> uniq def
+R2598:2603 rt.model.schedule.apa.affinity <> Affinity.Properties.Subset.alpha' var
+R2621:2626 rt.model.schedule.apa.affinity <> Affinity.Properties.Subset.alpha' var
+R2665:2674 mathcomp.ssreflect.fintype <> card_uniqP thm
+R2680:2689 mathcomp.ssreflect.fintype <> card_uniqP thm
+R2714:2726 mathcomp.ssreflect.seq <> uniq_leq_size thm
+R2714:2726 mathcomp.ssreflect.seq <> uniq_leq_size thm
+R2755:2760 rt.model.schedule.apa.affinity Affinity.Properties.Subset.Lemmas <> sec
+R2778:2783 rt.model.schedule.apa.affinity Affinity.Properties.Subset <> sec
+sec 2799:2820 Affinity.Properties IntersectingAffinities
+def 2963:2981 Affinity affinity_intersects
+R2998:3005 rt.model.schedule.apa.affinity Affinity affinity def
+R3007:3014 rt.model.schedule.apa.affinity <> Affinity.Properties.num_cpus var
+R3028:3035 mathcomp.ssreflect.fintype FiniteQuant.Exports :bool_scope:'['_'exists'_x_x_']' not
+R3076:3076 mathcomp.ssreflect.fintype FiniteQuant.Exports :bool_scope:'['_'exists'_x_x_']' not
+R3039:3040 mathcomp.ssreflect.fintype FiniteQuant.Exports :fin_quant_scope:','_x not
+R3041:3041 Coq.Init.Datatypes <> :bool_scope:x_'&&'_x not
+R3055:3060 Coq.Init.Datatypes <> :bool_scope:x_'&&'_x not
+R3075:3075 Coq.Init.Datatypes <> :bool_scope:x_'&&'_x not
+R3045:3049 mathcomp.ssreflect.ssrbool <> :bool_scope:x_'\in'_x not
+R3050:3054 rt.model.schedule.apa.affinity <> alpha var
+R3064:3068 mathcomp.ssreflect.ssrbool <> :bool_scope:x_'\in'_x not
+R3069:3074 rt.model.schedule.apa.affinity <> alpha' var
+R3088:3109 rt.model.schedule.apa.affinity Affinity.Properties.IntersectingAffinities <> sec
+R3121:3130 rt.model.schedule.apa.affinity Affinity.Properties <> sec
+R3140:3147 rt.model.schedule.apa.affinity Affinity <> mod
