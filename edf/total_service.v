@@ -27,20 +27,47 @@ Module TotalService.
     Variable sched: schedule Job.
 
     (* Assume that jobs only execute after they arrived. *)
-    Check jobs_must_arrive_to_execute sched.
     Hypothesis H_jobs_must_arrive_to_execute:
       jobs_must_arrive_to_execute job_arrival sched.
-    Check arrived_before.
 
     (* added hypothesis. need to fix.*)
     Lemma busy_last_instant:
-      forall t d,  (~~ is_idle sched (t + d)) 
-      ->   ( \sum_(j <- jobs_arrived_before arr_seq (t + d).+1)
+      forall t d,  ( \sum_(j <- jobs_arrived_before arr_seq (t + d).+1)
       service_during sched j t (t + d).+1)
             =   ((\sum_(j <- jobs_arrived_before arr_seq (t + d))
-                   service_during sched j t (t + d)) + 1).
+                   service_during sched j t (t + d)) + (~~ is_idle sched (t + d))).
     Proof.
-      Admitted.
+      unfold service_during.
+      unfold service_at.
+      unfold scheduled_at.
+      unfold jobs_arrived_before.
+      unfold arrived_between.
+      assert (Test: 1 = 1).
+      trivial.
+    Check jobs_arrived_between.
+    Check jobs_arriving_at.
+      intros t d.
+      assert (Meh: (jobs_arrived_between arr_seq 0 (t + d).+1) =
+                   (jobs_arrived_between arr_seq 0 (t + d) ++ jobs_arriving_at arr_seq (t + d))).
+      unfold jobs_arrived_between.
+      rewrite -> big_nat_recr.
+      auto. rewrite -> leq0n; auto.
+      replace (jobs_arrived_between arr_seq 0 (t + d).+1) with (jobs_arrived_between arr_seq 0 (t + d) ++ jobs_arriving_at arr_seq (t + d)).
+      rewrite -> big_cat.
+      rewrite -> exchange_big.
+      rewrite -> big_cat_nat with (n := t + d).
+      Check jobs_must_arrive_to_execute.
+      auto.
+      unfold is_idle.
+      replace (\big[addn_comoid/0]_(t <= i < t + d) \big[addn_comoid/0]_(i0 <- jobs_arrived_between arr_seq 0 (t + d))(sched i == Some i0)) with (\sum_(j <- jobs_arrived_between arr_seq 0 (t + d)) \sum_(t <= t0 < t + d) (sched t0 == Some j)).
+      Focus 2.
+      rewrite -> exchange_big.
+      auto.
+      Focus 2.
+      apply leq_addr.
+      rewrite -> big_cat.
+      auto.
+    Admitted.
 
     (* added hypothesis. need to fix.*)
     Lemma idle_last_instant:
