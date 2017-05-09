@@ -61,6 +61,12 @@ Module TotalService.
       Focus 2.
       apply leq_addr.
       auto.
+      Focus 2.
+      case (t + d).
+      auto.
+      intros n.
+      auto.
+
     Admitted.
 
     (* added hypothesis. need to fix.*)
