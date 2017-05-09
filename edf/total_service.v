@@ -42,12 +42,8 @@ Module TotalService.
       unfold scheduled_at.
       unfold jobs_arrived_before.
       unfold arrived_between.
-      assert (Test: 1 = 1).
-      trivial.
-    Check jobs_arrived_between.
-    Check jobs_arriving_at.
       intros t d.
-      assert (Meh: (jobs_arrived_between arr_seq 0 (t + d).+1) =
+      assert (H_Instant: (jobs_arrived_between arr_seq 0 (t + d).+1) =
                    (jobs_arrived_between arr_seq 0 (t + d) ++ jobs_arriving_at arr_seq (t + d))).
       unfold jobs_arrived_between.
       rewrite -> big_nat_recr.
@@ -56,7 +52,6 @@ Module TotalService.
       rewrite -> big_cat.
       rewrite -> exchange_big.
       rewrite -> big_cat_nat with (n := t + d).
-      Check jobs_must_arrive_to_execute.
       auto.
       unfold is_idle.
       replace (\big[addn_comoid/0]_(t <= i < t + d) \big[addn_comoid/0]_(i0 <- jobs_arrived_between arr_seq 0 (t + d))(sched i == Some i0)) with (\sum_(j <- jobs_arrived_between arr_seq 0 (t + d)) \sum_(t <= t0 < t + d) (sched t0 == Some j)).
@@ -65,7 +60,6 @@ Module TotalService.
       auto.
       Focus 2.
       apply leq_addr.
-      rewrite -> big_cat.
       auto.
     Admitted.
 
