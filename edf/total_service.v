@@ -74,6 +74,31 @@ Module TotalService.
       auto.
       replace (\big[addn_monoid/0]_(i <- jobs_arriving_at arr_seq (t + d))(\sum_(t <= t0 < (t + d).+1) (sched t0 == Some i))) with (\big[addn_monoid/0]_(i <- jobs_arriving_at arr_seq (t + d))(sched (t + d) == Some i)).
       Focus 2.
+      symmetry.
+      rewrite -> exchange_big.
+      rewrite -> big_cat_nat with (n := t + d).
+      replace (\big[addn_comoid/0]_(t + d <= i < (t + d).+1) \big[addn_comoid/0]_(i0 <- jobs_arriving_at arr_seq (t + d)) (sched i == Some i0)) with (\big[addn_monoid/0]_(i <- jobs_arriving_at arr_seq (t + d)) (sched (t + d) == Some i)).
+      Focus 2.
+      symmetry.
+      rewrite -> big_nat1.
+      auto.
+      Focus 2.
+      apply leq_addr.
+      Focus 2.
+      apply leqnSn with (n := (t + d)).
+      replace (\big[addn_comoid/0]_(t <= i < t + d) \big[addn_comoid/0]_(i0 <- jobs_arriving_at arr_seq (t + d)) (sched i == Some i0)) with 0.
+      auto.
+      induction d.
+      symmetry.
+      rewrite -> big_geq.
+      auto.
+      rewrite -> addn0.
+      auto.
+      symmetry.
+      unfold jobs_must_arrive_to_execute in H_jobs_must_arrive_to_execute.
+      unfold scheduled_at in H_jobs_must_arrive_to_execute.
+      unfold has_arrived in H_jobs_must_arrive_to_execute.
+      unfold jobs_arriving_at.
       
     Qed.
     Admitted.
