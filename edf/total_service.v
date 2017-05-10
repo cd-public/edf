@@ -43,8 +43,8 @@ Module TotalService.
       unfold jobs_arrived_before.
       unfold arrived_between.
       intros t d.
-      assert (H_Instant: (jobs_arrived_between arr_seq 0 (t + d).+1) =
-                   (jobs_arrived_between arr_seq 0 (t + d) ++ jobs_arriving_at arr_seq (t + d))).
+      replace (jobs_arrived_between arr_seq 0 (t + d).+1) with (jobs_arrived_between arr_seq 0 (t + d) ++ jobs_arriving_at arr_seq (t + d)).
+      Focus 2.
       unfold jobs_arrived_between.
       rewrite -> big_nat_recr.
       auto. rewrite -> leq0n; auto.
@@ -52,21 +52,30 @@ Module TotalService.
       rewrite -> big_cat.
       rewrite -> exchange_big.
       rewrite -> big_cat_nat with (n := t + d).
-      auto.
       unfold is_idle.
       replace (\big[addn_comoid/0]_(t <= i < t + d) \big[addn_comoid/0]_(i0 <- jobs_arrived_between arr_seq 0 (t + d))(sched i == Some i0)) with (\sum_(j <- jobs_arrived_between arr_seq 0 (t + d)) \sum_(t <= t0 < t + d) (sched t0 == Some j)).
       Focus 2.
       rewrite -> exchange_big.
       auto.
+      Focus 4.
+      unfold jobs_arrived_between.
+      symmetry.
+      rewrite -> big_nat_recr.
+      auto.
+      auto.
       Focus 2.
       apply leq_addr.
-      auto.
       Focus 2.
-      case (t + d).
+      apply leqnSn with (n := (t + d)).
+      replace (\big[addn_comoid/0]_(t + d <= i < (t + d).+1) \big[addn_comoid/0]_(i0 <- jobs_arrived_between arr_seq 0 (t + d)) (sched i == Some i0)) with (\big[addn_comoid/0]_(i0 <- jobs_arrived_between arr_seq 0 (t + d))(sched (t + d) == Some i0)).
+      Focus 2.
+      symmetry.
+      rewrite -> big_nat1.
       auto.
-      intros n.
-      auto.
-
+      replace (\big[addn_monoid/0]_(i <- jobs_arriving_at arr_seq (t + d))(\sum_(t <= t0 < (t + d).+1) (sched t0 == Some i))) with (\big[addn_monoid/0]_(i <- jobs_arriving_at arr_seq (t + d))(sched (t + d) == Some i)).
+      Focus 2.
+      
+    Qed.
     Admitted.
 
     (* added hypothesis. need to fix.*)
